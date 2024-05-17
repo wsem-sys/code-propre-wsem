@@ -1,5 +1,4 @@
 package ex3;
-
 public class ZooApplication {
 
 	public static void main(String[] args) {
