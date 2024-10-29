@@ -2,35 +2,28 @@ package ex3;
 public class Zoo {
 
 	private String nom;
-	private SavaneAfricaine savaneAfricaine;
-	private ZoneCarnivore zoneCarnivore;
-	private FermeReptile fermeReptile;
-	private Aquarium aquarium;
-	
+	private List<String> types;
+	private List<String> noms;
+	private List<String> comportements;
+
 	public Zoo(String nom){
 		this.nom = nom;
 	}
-	
+
 	public void addAnimal(String nomAnimal, String typeAnimal, String comportement){
-		if (typeAnimal.equals("MAMMIFERE") && comportement.equals("CARNIVORE")){
-			zoneCarnivore.addAnimal(typeAnimal, nomAnimal, comportement);
-		}
-		else if (typeAnimal.equals("MAMMIFERE") && comportement.equals("HERBIVORE")){
-			savaneAfricaine.addAnimal(typeAnimal, nomAnimal, comportement);
-		}
-		else if (typeAnimal.equals("REPTILE")){
-			fermeReptile.addAnimal(typeAnimal, nomAnimal, comportement);
-		}
-		else if (typeAnimal.equals("POISSON")){
-			aquarium.addAnimal(typeAnimal, nomAnimal, comportement);
-		}
+		types.add(typeAnimal);
+		noms.add(nomAnimal);
+		comportements.add(comportement);
 	}
 	
 	public void afficherListeAnimaux(){
-		savaneAfricaine.afficherListeAnimaux();
-		zoneCarnivore.afficherListeAnimaux();
-		fermeReptile.afficherListeAnimaux();
-		aquarium.afficherListeAnimaux();
+		for (int i=0; i<types.size(); i++) {
+			System.out.println(noms.get(i)+" "+types.get(i)+" "+comportements.get(i));
+		}
+	}
+	
+	public int taille() {
+		return types.size();
 	}
 
 	/** Getter for nom
